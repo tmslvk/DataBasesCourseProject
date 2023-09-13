@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ManagerClass">
+  <DataContextMoniker Name="/ManagerClassDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a6d65ce7-650c-4454-8cf4-5e0033266025" absoluteBounds="5, 6.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ManagerClassDataContext/manager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d82a73a-afc1-4957-b3ae-559b1bab9731" absoluteBounds="5.015, 6.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37575c27-9fc5-48a6-9c64-38c2bb263cd2" absoluteBounds="4.875, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ManagerClassDataContext/adServices" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3ece3fe-8549-4f96-aeb7-2d16d3db250b" absoluteBounds="4.89, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9245e503-da6f-4d1f-9e6a-4fbce870e511" absoluteBounds="7.375, 3.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ManagerClassDataContext/customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d056439f-b2cc-441e-8bbe-71c363022442" absoluteBounds="7.3900000000000006, 4.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9842b9e3-3d6e-4449-bea8-bbd2723389ab" absoluteBounds="4.875, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ManagerClassDataContext/orders" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45f8b23d-0032-4188-a6e2-309436eee69c" absoluteBounds="4.89, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.9375 : 6.125); (5.9375 : 5.65549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ManagerClassDataContext/manager/manager_orders" />
+      <nodes>
+        <classShapeMoniker Id="a6d65ce7-650c-4454-8cf4-5e0033266025" />
+        <classShapeMoniker Id="9842b9e3-3d6e-4449-bea8-bbd2723389ab" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 2.5112939453125); (5.875 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ManagerClassDataContext/adServices/adServices_orders" />
+      <nodes>
+        <classShapeMoniker Id="37575c27-9fc5-48a6-9c64-38c2bb263cd2" />
+        <classShapeMoniker Id="9842b9e3-3d6e-4449-bea8-bbd2723389ab" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.375 : 4.60659912109375); (6.875 : 4.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ManagerClassDataContext/customer/customer_orders" />
+      <nodes>
+        <classShapeMoniker Id="9245e503-da6f-4d1f-9e6a-4fbce870e511" />
+        <classShapeMoniker Id="9842b9e3-3d6e-4449-bea8-bbd2723389ab" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6ae212a6-12ec-4ee5-9007-1398b463ef8a" absoluteBounds="2.375, 3.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ManagerClassDataContext/placeOfAdvertisement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45a3dd0a-cd92-4beb-80f2-17545d907ba8" absoluteBounds="2.39, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.375 : 4.56814697265625); (4.875 : 4.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ManagerClassDataContext/placeOfAdvertisement/placeOfAdvertisement_orders" />
+      <nodes>
+        <classShapeMoniker Id="6ae212a6-12ec-4ee5-9007-1398b463ef8a" />
+        <classShapeMoniker Id="9842b9e3-3d6e-4449-bea8-bbd2723389ab" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

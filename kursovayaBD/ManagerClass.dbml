@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="advertiseKursovaya" Class="ManagerClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-1D3P714\SQLEXPRESS;Initial Catalog=advertiseKursovaya;Integrated Security=True" SettingsObjectName="kursovayaBD.Properties.Settings" SettingsPropertyName="advertiseKursovayaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.manager" Member="manager">
+    <Type Name="manager">
+      <Column Name="managerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="middlename" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="manager_orders" Member="orders" ThisKey="managerID" OtherKey="managerID" Type="orders" />
+    </Type>
+  </Table>
+  <Table Name="dbo.adServices" Member="adServices">
+    <Type Name="adServices">
+      <Column Name="serviceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="service" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="serviceDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="adServices_orders" Member="orders" ThisKey="serviceID" OtherKey="serviceID" Type="orders" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customer">
+    <Type Name="customer">
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="middlename" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="customer_orders" Member="orders" ThisKey="userID" OtherKey="userID" Type="orders" />
+    </Type>
+  </Table>
+  <Table Name="dbo.orders" Member="orders">
+    <Type Name="orders">
+      <Column Name="orderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="serviceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dateAdFrom" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="dateAdTo" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="managerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="placeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="manager_orders" Member="manager" ThisKey="managerID" OtherKey="managerID" Type="manager" IsForeignKey="true" />
+      <Association Name="adServices_orders" Member="adServices" ThisKey="serviceID" OtherKey="serviceID" Type="adServices" IsForeignKey="true" />
+      <Association Name="customer_orders" Member="customer" ThisKey="userID" OtherKey="userID" Type="customer" IsForeignKey="true" />
+      <Association Name="placeOfAdvertisement_orders" Member="placeOfAdvertisement" ThisKey="placeID" OtherKey="placeID" Type="placeOfAdvertisement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.placeOfAdvertisement" Member="placeOfAdvertisement">
+    <Type Name="placeOfAdvertisement">
+      <Column Name="placeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="rentPrice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="typeOfAd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="placeOfAdvertisement_orders" Member="orders" ThisKey="placeID" OtherKey="placeID" Type="orders" />
+    </Type>
+  </Table>
+</Database>
